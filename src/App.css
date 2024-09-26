@@ -12,3 +12,29 @@
 .car label {
     margin-right: 10px;
 }
+
+.CarroForm {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+}
+
+.CarroForm input {
+    margin-left: 5px;
+    width: 150px;
+    align-items: center;
+    text-align: center;
+}
+
+.Carros {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.Carros select {
+    width: 200px;
+    margin: 0 auto;
+    margin-bottom: 15px;
+}

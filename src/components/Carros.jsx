@@ -1,34 +1,27 @@
 import { useState } from "react"
 import Carro from "./Carro";
+import { v4 as uuidv4 } from 'uuid'
 
-const cars = [
-    {   
-        id:'1',
-        name:'Opala'
-    },
-    {
-        id:'2',
-        name:"Fusca"
-    },
-    {
-        id:'3',
-        name:'Chevete'
-    }
-];
 
-const Carros = () => {
-    const [carros, setCarros] = useState(cars);
-    // const [carros, setCarros] = useState([{id:'1', name:"Opala"}, 2, 3]);
 
-    console.log(carros)
+const Carros = ({carros, setCarros}) => {
 
     return (
-        <>
+        <div className="Carros">
             <h1>Cars</h1>
+
+            <div>
+                <label>Filtro: </label>
+                <select name="cars" id="cars">
+                    <option value="">Carros a venda</option>
+                    <option value="dsade">option 2</option>
+                </select>
+            </div>
+
             {
-                carros.map( (carro, index) => <Carro key={index} carro={carro} /> )
+                carros.map( (carro, index) => <Carro key={index} carro={carro} carros={carros} setCarros={setCarros} /> )
             }
-        </>
+        </div>
     )
 }
 
