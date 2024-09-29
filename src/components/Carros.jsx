@@ -1,26 +1,47 @@
 import { useState } from "react"
 import Carro from "./Carro";
-import { v4 as uuidv4 } from 'uuid'
 
 
 
 const Carros = ({carros, setCarros}) => {
+
+    const [isFilter, setIsFilter] = useState(true);
+    const [showVenda, setShowVenda] = useState(false);
+
+    const handleChange = (e) => {
+        setShowVenda(e)
+        if (e == "true") {
+            setIsFilter(false);
+        }
+         else {
+            setIsFilter(true);
+        }
+
+    }
+
 
     return (
         <div className="Carros">
             <h1>Cars</h1>
 
             <div>
-                <label>Filtro: </label>
-                <select name="cars" id="cars">
-                    <option value="">Carros a venda</option>
-                    <option value="dsade">option 2</option>
+                <label>Carros: </label>
+                <select onChange={ (e) => handleChange(e.target.value) } name="cars" id="cars">
+                    <option value="false">a venda</option>
+                    <option value="true">vendidos</option>
                 </select>
             </div>
 
-            {
-                carros.map( (carro, index) => <Carro key={index} carro={carro} carros={carros} setCarros={setCarros} /> )
-            }
+            <div className="CarrosMap">
+                {
+                    isFilter ? 
+                    carros.filter( (car) => car.venda == undefined )
+                        .map( (carro, index) => <Carro key={index} carro={carro} carros={carros} setCarros={setCarros} showVendaButton={true} /> )
+                    :
+                    carros.filter( (car) => car.venda != undefined )
+                        .map( (carro, index) => <Carro key={index} carro={carro} carros={carros} setCarros={setCarros} showVenda={showVenda}/> )
+                }
+            </div>
         </div>
     )
 }

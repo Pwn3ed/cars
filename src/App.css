@@ -1,27 +1,51 @@
 .main {
-    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 .car {
     display: flex;
+    flex-direction: column;
+    text-align: left;
+
     border: 2px solid black;
     padding: 5px;
-    margin-bottom: 15px;
+    margin: 15px;
 }
 
 .car label {
-    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.car button.remove {
+
+    width: 50px;
+    margin-right: 20px;
+    background-color: brown;
+}
+
+.car button.showVendaButton {
+    width: 100px;
+    background-color: rgb(109, 109, 109);
+}
+
+.car .buttons {
+    display: flex;
+    justify-content: center;
+    
 }
 
 .CarroForm {
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
     align-items: center;
 }
 
 .CarroForm input {
-    margin-left: 5px;
+    margin-bottom: 5px;
     width: 150px;
     align-items: center;
     text-align: center;
@@ -37,4 +61,10 @@
     width: 200px;
     margin: 0 auto;
     margin-bottom: 15px;
+}
+
+.CarrosMap {
+    display: flex;
+    flex-wrap: wrap;
+    width: 1100px;
 }
