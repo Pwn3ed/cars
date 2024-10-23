@@ -3,13 +3,10 @@ import './App.css'
 import CarroForm from './components/CarroForm'
 import Carros from "./components/Carros"
 import Carro from './components/Carro';
-import { v4 as uuidv4 } from 'uuid';
-
-
 
 const App = () => {
 
-  const [carros, setCarros] = useState([]);
+  const [carros, setCarros] = useState<Carro[]>([]);
 
   return (
     <div className='main'>

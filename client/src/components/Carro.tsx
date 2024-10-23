@@ -1,8 +1,27 @@
 
+type CarroProps = {
+    carro: Carro,
+    carros: Carro[],
+    setCarros: React.Dispatch<React.SetStateAction<Carro[]>>,
+    showVenda?: boolean,
+    showVendaButton?: boolean
+}
 
-const Carro = ({ carro, carros, setCarros, showVenda, showVendaButton }) => {
+type Carro = {
+    id: string,
+    marca: string,
+    modelo: string,
+    ano: number,
+    cor: string
+    venda?: {
+        nome: string,
+        cpf: string
+    }
+};
 
-    const handleRemove = (e) => {
+const Carro = ({ carro, carros, setCarros, showVenda, showVendaButton }:CarroProps) => {
+
+    const handleRemove = () => {
         confirm("Deseja mesmo remover o carro?") 
         &&
         setCarros(carros.filter( car => car.id != carro.id ))
@@ -38,8 +57,8 @@ const Carro = ({ carro, carros, setCarros, showVenda, showVendaButton }) => {
                     <div className="showVenda">
 
                         <label>Vendido para: </label>
-                        <label>{carro.venda.nome}</label>
-                        <label>{carro.venda.cpf}</label>
+                        <label>{carro.venda?.nome}</label>
+                        <label>{carro.venda?.cpf}</label>
                     </div>
                 )}
                 {showVendaButton && (
