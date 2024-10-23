@@ -9,7 +9,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 const App = () => {
 
-  const [carros, setCarros] = useState<Carro>([]);
+  const [carros, setCarros] = useState([]);
 
   return (
     <div className='main'>
