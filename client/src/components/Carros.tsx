@@ -40,10 +40,10 @@ const Carros = ({carros, setCarros}: CarrosProps) => {
                 {
                     isFilter ? 
                     carros.filter( (car) => car.venda == undefined )
-                        .map( (carro, index) => <Carro key={index} carro={carro} carros={carros} setCarros={setCarros} showVendaButton={showVenda} /> )
+                        .map( (carro, index) => <Carro key={index} carro={carro} carros={carros} setCarros={setCarros} showVendaButton={showVenda} showVenda={false} /> )
                     :
                     carros.filter( (car) => car.venda != undefined )
-                        .map( (carro, index) => <Carro key={index} carro={carro} carros={carros} setCarros={setCarros} showVenda={showVenda}/> )
+                        .map( (carro, index) => <Carro key={index} carro={carro} carros={carros} setCarros={setCarros} showVenda={true}/> )
                 }
             </div>
         </div>

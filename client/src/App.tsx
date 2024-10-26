@@ -1,32 +1,26 @@
-import { useState } from 'react';
 import './App.css'
-import CarroForm from './components/CarroForm'
-import Carros from "./components/Carros"
-import Carro from './components/Carro';
-
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import Home from './pages/HomePage';
+import ErrorPage from './pages/ErrorPage';
+import AddCarPage from './pages/AddCarPage';
+ 
 const App = () => {
 
-  const [carros, setCarros] = useState<Carro[]>([]);
+  const router = createBrowserRouter([
+    {
+      path:'/',
+      errorElement: <ErrorPage />,
+      children: [
+        {index: true, element: <Home />},
+        {path: '/add', element: <AddCarPage />}
+        // {path: '/carroTest', element: <Carro />}
+      ]
+    }
+  ]);
 
   return (
-    <div className='main'>
-
-        <Carros 
-          carros={carros}
-          setCarros={setCarros} 
-        />
-
-        <CarroForm 
-          carros={carros}
-          setCarros={setCarros}
-        />
-
-        <br/><br/><br/>
-        <p>&copy; Made by Pwn3ed </p>
-
-
-    </div>
+      <RouterProvider router={router} />
   )
-}
+};
 
 export default App

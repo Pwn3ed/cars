@@ -9,11 +9,15 @@
 .car {
     display: flex;
     flex-direction: column;
-    text-align: left;
+    text-align: center;
 
     border: 2px solid black;
     padding: 5px;
     margin: 15px;
+}
+
+.car img {
+    margin: 10px 0px;
 }
 
 .car label {

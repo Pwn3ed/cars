@@ -1,4 +1,16 @@
 
+type Carro = {
+    id: string,
+    bodyType: string,
+    modelName: string,
+    modelType: string
+    imageUrl: string,
+    venda?: {
+        nome: string,
+        cpf: string
+    }
+};
+
 type CarroProps = {
     carro: Carro,
     carros: Carro[],
@@ -6,18 +18,6 @@ type CarroProps = {
     showVenda?: boolean,
     showVendaButton?: boolean
 }
-
-type Carro = {
-    id: string,
-    marca: string,
-    modelo: string,
-    ano: number,
-    cor: string
-    venda?: {
-        nome: string,
-        cpf: string
-    }
-};
 
 const Carro = ({ carro, carros, setCarros, showVenda, showVendaButton }:CarroProps) => {
 
@@ -47,10 +47,13 @@ const Carro = ({ carro, carros, setCarros, showVenda, showVendaButton }:CarroPro
 
     return (
         <div className="car">
-            <label>{carro.marca} {carro.modelo}</label>
-            <label>Ano: {carro.ano}</label>
-            <label>Cor: {carro.cor}</label>
+            <label>{carro.modelName}</label>
+            <label>{carro.bodyType}</label>
+            <label>{carro.modelType}</label>
+            <img src={carro.imageUrl} width={'300px'} />
+
             <div className="buttons">
+
 
                 <button className="remove" onClick={handleRemove}>X</button>
                 {showVenda && (

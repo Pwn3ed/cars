@@ -1,28 +1,44 @@
 import { useState } from "react";
 import { v4 as uuidv4 } from 'uuid';
+import Carro from "./Carro";
 
-const CarroForm = ({ carros, setCarros }) => {
-    const [marca, setMarca] = useState("");
-    const [modelo, setModelo] = useState("");
-    const [ano, setAno] = useState("");
-    const [cor, setCor] = useState("");
+type CarroFormProps = {
+    carros: Carro[],
+    setCarros: React.Dispatch<React.SetStateAction<Carro[]>>
+};
 
-    const addCarro = (e) => {
-        if (marca && modelo && ano && cor) {
+const CarroForm = ({ carros, setCarros }: CarroFormProps) => {
+    const [name, setName] = useState("");
+    const [modelName, setModelName] = useState("");
+    const [bodyType, setBodyType] = useState("");
+    const [modelType, setModelType] = useState("");
+    const [imageUrl, setImageUrl] = useState("");
+
+    // {
+    //     "id": "xc90-recharge",
+    //     "modelName": "XC90 Recharge", 
+    //     "bodyType": "suv",
+    //     "modelType": "plug-in hybrid",
+    //     "imageUrl": "/images/xc90_recharge.jpg"
+    //   }
+
+    const addCarro = () => {
+        if (name && modelName && bodyType && modelType) {
             const carro = {   
                 id: uuidv4(),
-                marca: marca,
-                modelo: modelo,
-                ano: ano,
-                cor: cor
+                name: id,
+                bodyType: bodyType,
+                modelType: modelType,
+                imageUrl: imageUrl
             };       
     
             setCarros([...carros, carro]);
     
-            setMarca("");
-            setModelo("");
-            setAno("");
-            setCor("");
+            setName("");
+            setModelName("");
+            setBodyType("");
+            setModelType("");
+            setImageUrl("");
         }
     }
 
@@ -36,11 +52,11 @@ const CarroForm = ({ carros, setCarros }) => {
                 </label>
 
                 <label>
-                    <input required type="text" value={modelo}  onChange={ (e) => setModelo(e.currentTarget.value) } placeholder="Modelo" />
+                    <input required type="text" value={modelName}  onChange={ (e) => setModelName(e.currentTarget.value) } placeholder="Modelo" />
                 </label>
 
                 <label>
-                    <input required type="text" value={ano} onChange={ (e) => setAno(e.currentTarget.value) } placeholder="Ano" />
+                    <input required type="text" value={ano} onChange={ (e) => setAno(Number(e.currentTarget.value)) } placeholder="Ano" />
                 </label>
 
                 <label>
