@@ -47,9 +47,11 @@ const Carro = ({ carro, carros, setCarros, showVenda, showVendaButton }:CarroPro
 
     return (
         <div className="car">
-            <label>{carro.modelName}</label>
-            <label>{carro.bodyType}</label>
-            <label>{carro.modelType}</label>
+            <label className="subTitle">{carro.bodyType.toUpperCase()}</label>
+            <div>
+                <label>{carro.modelName}</label>
+                <label className="subTitle margin">{carro.modelType}</label>
+            </div>
             <img src={carro.imageUrl} width={'300px'} />
 
             <div className="buttons">

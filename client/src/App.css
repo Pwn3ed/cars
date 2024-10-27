@@ -9,9 +9,9 @@
 .car {
     display: flex;
     flex-direction: column;
-    text-align: center;
+    text-align: left;
 
-    border: 2px solid black;
+    /* border: 2px solid black; */
     padding: 5px;
     margin: 15px;
 }
@@ -22,6 +22,15 @@
 
 .car label {
     margin-bottom: 10px;
+
+}
+
+.car .subTitle {
+    color: darkgray;
+}
+
+.car .margin {
+    margin-left: 5px;
 }
 
 .car button.remove {
